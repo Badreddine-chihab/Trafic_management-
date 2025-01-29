@@ -1,0 +1,162 @@
+Log de la simulation du trafic
+============================
+
+[2025-01-29 12:17:31] Queue 1 | Added Vehicle 2 (Type: 1)
+
+=== Queue 1 State (After enqueue) ===
+Capacity: 1/5 | Light: RED
+Vehicles:
+- ID: 2 | Type: Bus | Arrived at: 10s
+=======================
+[2025-01-29 12:17:31] Queue 1 | Added Vehicle 3 (Type: 3)
+
+=== Queue 1 State (After enqueue) ===
+Capacity: 2/5 | Light: RED
+Vehicles:
+- ID: 2 | Type: Bus | Arrived at: 10s
+- ID: 3 | Type: Emergency | Arrived at: 5s
+=======================
+[2025-01-29 12:17:31] Queue 1 | Added Vehicle 4 (Type: 2)
+
+=== Queue 1 State (After enqueue) ===
+Capacity: 3/5 | Light: RED
+Vehicles:
+- ID: 2 | Type: Bus | Arrived at: 10s
+- ID: 3 | Type: Emergency | Arrived at: 5s
+- ID: 4 | Type: Bike | Arrived at: 2s
+=======================
+[2025-01-29 12:17:31] Queue 1 | Dequeued Vehicle 2
+[2025-01-29 12:17:31] Queue 1 | Added Vehicle 5 (Type: 0)
+
+=== Queue 1 State (After enqueue) ===
+Capacity: 3/5 | Light: RED
+Vehicles:
+- ID: 3 | Type: Emergency | Arrived at: 5s
+- ID: 4 | Type: Bike | Arrived at: 2s
+- ID: 5 | Type: Car | Arrived at: 15s
+=======================
+[2025-01-29 12:17:31] Queue 1 | Added Vehicle 6 (Type: 1)
+
+=== Queue 1 State (After enqueue) ===
+Capacity: 4/5 | Light: RED
+Vehicles:
+- ID: 3 | Type: Emergency | Arrived at: 5s
+- ID: 4 | Type: Bike | Arrived at: 2s
+- ID: 5 | Type: Car | Arrived at: 15s
+- ID: 6 | Type: Bus | Arrived at: 12s
+=======================
+[2025-01-29 12:17:31] Queue 1 | Added Vehicle 7 (Type: 3)
+
+=== Queue 1 State (After enqueue) ===
+Capacity: 5/5 | Light: RED
+Vehicles:
+- ID: 3 | Type: Emergency | Arrived at: 5s
+- ID: 4 | Type: Bike | Arrived at: 2s
+- ID: 5 | Type: Car | Arrived at: 15s
+- ID: 6 | Type: Bus | Arrived at: 12s
+- ID: 7 | Type: Emergency | Arrived at: 8s
+=======================
+[2025-01-29 12:17:31] Queue 1 FULL! Rejected Vehicle 8
+[2025-01-29 12:17:31] Queue 1 | Dequeued Vehicle 3
+[2025-01-29 12:17:31] Queue 1 | Added Vehicle 1 (Type: 0)
+
+=== Queue 1 State (After enqueue) ===
+Capacity: 5/5 | Light: RED
+Vehicles:
+- ID: 4 | Type: Bike | Arrived at: 2s
+- ID: 5 | Type: Car | Arrived at: 15s
+- ID: 6 | Type: Bus | Arrived at: 12s
+- ID: 7 | Type: Emergency | Arrived at: 8s
+- ID: 1 | Type: Car | Arrived at: 0s
+=======================
+[2025-01-29 12:17:31] GREEN phase started
+Duration: 12 seconds
+
+=== Queue 1 State (Start of GREEN phase) ===
+Capacity: 5/5 | Light: GREEN
+Vehicles:
+- ID: 4 | Type: Bike | Arrived at: 2s
+- ID: 5 | Type: Car | Arrived at: 15s
+- ID: 6 | Type: Bus | Arrived at: 12s
+- ID: 7 | Type: Emergency | Arrived at: 8s
+- ID: 1 | Type: Car | Arrived at: 0s
+=======================
+[2025-01-29 12:17:31] Queue 1 | Dequeued Vehicle 4
+[2025-01-29 12:17:31] Vehicle processed
+Processed Vehicle: ID 4 | Type 2 | Waiting time: 1738149449s
+[2025-01-29 12:17:34] Queue 1 | Dequeued Vehicle 5
+[2025-01-29 12:17:34] Vehicle processed
+Processed Vehicle: ID 5 | Type 0 | Waiting time: 1738149439s
+[2025-01-29 12:17:37] Queue 1 | Dequeued Vehicle 6
+[2025-01-29 12:17:37] Vehicle processed
+Processed Vehicle: ID 6 | Type 1 | Waiting time: 1738149445s
+[2025-01-29 12:17:40] Queue 1 | Dequeued Vehicle 7
+[2025-01-29 12:17:40] Vehicle processed
+Processed Vehicle: ID 7 | Type 3 | Waiting time: 1738149452s
+[2025-01-29 12:17:43] RED phase started
+Duration: 18 seconds
+
+=== Queue 1 State (Start of RED phase) ===
+Capacity: 1/5 | Light: RED
+Vehicles:
+- ID: 1 | Type: Car | Arrived at: 0s
+=======================
+[2025-01-29 12:18:01] Cycle completed
+Total cycle duration: 30 seconds
+
+=== Queue 1 State (End of cycle) ===
+Capacity: 1/5 | Light: RED
+Vehicles:
+- ID: 1 | Type: Car | Arrived at: 0s
+=======================
+[2025-01-29 12:18:01] GREEN phase started
+Duration: 10 seconds
+
+=== Queue 1 State (Start of GREEN phase) ===
+Capacity: 1/5 | Light: GREEN
+Vehicles:
+- ID: 1 | Type: Car | Arrived at: 0s
+=======================
+[2025-01-29 12:18:01] Queue 1 | Dequeued Vehicle 1
+[2025-01-29 12:18:01] Vehicle processed
+Processed Vehicle: ID 1 | Type 0 | Waiting time: 1738149481s
+[2025-01-29 12:18:04] RED phase started
+Duration: 20 seconds
+
+=== Queue 1 State (Start of RED phase) ===
+Capacity: 0/5 | Light: RED
+Vehicles:
+(empty)
+=======================
+[2025-01-29 12:18:25] Cycle completed
+Total cycle duration: 24 seconds
+
+=== Queue 1 State (End of cycle) ===
+Capacity: 0/5 | Light: RED
+Vehicles:
+(empty)
+=======================
+[2025-01-29 12:18:25] GREEN phase started
+Duration: 10 seconds
+
+=== Queue 1 State (Start of GREEN phase) ===
+Capacity: 0/5 | Light: GREEN
+Vehicles:
+(empty)
+=======================
+[2025-01-29 12:18:25] RED phase started
+Duration: 20 seconds
+
+=== Queue 1 State (Start of RED phase) ===
+Capacity: 0/5 | Light: RED
+Vehicles:
+(empty)
+=======================
+[2025-01-29 12:18:45] Cycle completed
+Total cycle duration: 20 seconds
+
+=== Queue 1 State (End of cycle) ===
+Capacity: 0/5 | Light: RED
+Vehicles:
+(empty)
+=======================

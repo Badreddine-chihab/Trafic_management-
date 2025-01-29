@@ -1,56 +1,52 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "libraries/queue.h"
- 
+
 int main() {
-    // Initialiser la file d'attente avec une capacité maximale de 5
-    Queue* q = createQueue(5);
-
-    // Ouvrir le fichier de log pour enregistrer les événements
+    // Initialisation du fichier de log
     FILE* logFile = initializeLogFile();
-
-    // Créer des véhicules avec des priorités différentes
-    Vehicule* car = createVehicule(1, CAR, 10);
-    Vehicule* bus = createVehicule(2, BUS, 15);
-    Vehicule* emergency = createVehicule(3, Emergency, 20);
-    Vehicule* bike = createVehicule(4, BIKE, 5);
-
-    // Ajouter les véhicules à la file d'attente
-    enqueue(q, car, logFile);
-    enqueue(q, bus, logFile);
-    enqueue(q, emergency, logFile);
-    enqueue(q, bike, logFile);
-
-    // Afficher l'état initial de la file d'attente
-    printf("\nÉtat initial de la file d'attente:\n");
-    display(q);
-
-    // Simuler le cycle des feux de circulation
-    printf("\nSimulation du cycle des feux de circulation:\n");
-    simulateTrafficLightCycle(q, 3); // Simuler 3 cycles
-
-    // Changer le feu de circulation à VERT pour permettre l'enlèvement des véhicules
-    changeTrafficLight(q, GREEN);
-
-    // Retirer les véhicules de la file d'attente
-    printf("\nRetrait des véhicules:\n");
-    while (!isEmpty(q)) {
-        Vehicule* v = dequeue(q, logFile);
-        if (v != NULL) {
-            free(v); // Libérer la mémoire du véhicule retiré
-        }
+    if (!logFile) {
+        printf("Erreur : Impossible d'ouvrir le fichier de log.\n");
+        return EXIT_FAILURE;
     }
 
-    // Afficher l'état final de la file d'attente
-    printf("\nÉtat final de la file d'attente:\n");
-    display(q);
+    // Création d'une file d'attente avec une capacité de 5 véhicules
+    Queue* queue = createQueue(5, 1);
+    if (!queue) {
+        printf("Erreur : Impossible de créer la file d'attente.\n");
+        fclose(logFile);
+        return EXIT_FAILURE;
+    }
 
-    // Fermer le fichier de log
+    // Ajout initial de véhicules à la file
+    enqueue(queue, createVehicule(2, BUS, 10), logFile);
+    enqueue(queue, createVehicule(3, Emergency, 5), logFile);
+    enqueue(queue, createVehicule(4, BIKE, 2), logFile);
+
+    // Défilement d'un véhicule
+    dequeue(queue, logFile);
+    
+
+    // Ajout de nouveaux véhicules
+    enqueue(queue, createVehicule(5, CAR, 15), logFile);
+    enqueue(queue, createVehicule(6, BUS, 12), logFile);
+    enqueue(queue, createVehicule(7, Emergency, 8), logFile);
+    enqueue(queue, createVehicule(8, BIKE, 4), logFile);
+    
+    // Défilement d'un autre véhicule
+    dequeue(queue, logFile);
+    
+    // Ajout d'un dernier véhicule
+    enqueue(queue, createVehicule(1, CAR, 0), logFile);
+    
+    // Simulation de plusieurs cycles de feux
+    for (int i = 0; i < 3; i++) {
+        printf("\n=== Début du cycle %d ===\n", i + 1);
+        simulateTrafficLightCycle(queue, logFile);
+    }
+    
+    // Fermeture du fichier log et libération de la mémoire
     fclose(logFile);
-
-    // Libérer la file d'attente
-    free(q);
-
-    printf("\nSimulation du trafic terminée. Vérifiez 'traffic_log.txt' pour le log.\n");
-    return 0;
+    free(queue);
+    return EXIT_SUCCESS;
 }
