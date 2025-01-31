@@ -21,7 +21,7 @@ typedef enum {
 typedef struct Vehicule {
     int id;
     VehiculeType type;
-    int arrivalTime;
+    time_t arrivalTime;  // Changed from int to time_t for format display like this ex : 12:00:55 
     struct Vehicule* next;
 } Vehicule;
 
@@ -70,8 +70,8 @@ Queue* createQueue(int max, int id) {
     q->size = 0;
     q->Maxcapacity = max;
     q->lightState = RED;
-    q->baseGreenDuration = 10;
-    q->baseRedDuration = 20;
+    q->baseGreenDuration = 3;
+    q->baseRedDuration = 6;
     return q;
 }
 
@@ -84,7 +84,7 @@ int isEmpty(Queue* q) {
 }
 
 int detectTrafficJam(Queue* q) {
-    return q->size >= q->Maxcapacity * 0.8;
+    return q->size >= q->Maxcapacity * 0.7;
 }
 
 LightDurations adjustLightDurations(Queue* q) {
@@ -155,10 +155,8 @@ void enqueue(Queue* q, Vehicule* v, FILE* logFile) {
     // Traitement normal des véhicules
     if (isFull(q)) {
         char msg[100];
-        snprintf(msg, 100, "Queue %d PLEINE! Véhicule %d rejeté (%s)", 
-                q->id, v->id, 
-                (v->type == CAR) ? "Voiture" :
-                (v->type == BUS) ? "Bus" : "Vélo");
+        snprintf(msg, 100, "Queue %d PLEINE!", 
+                q->id);
         logWithTimestamp(logFile, msg);
         free(v);
         return;
@@ -204,40 +202,7 @@ Vehicule* dequeue(Queue* q, FILE* logFile) {
     return v;
 }
 
-// Simulation du cycle des feux
-void simulateTrafficLightCycle(Queue* q, FILE* logFile) {
-    LightDurations durations = adjustLightDurations(q);
-    time_t cycleStart = time(NULL);
 
-    // PHASE VERTE
-    q->lightState = GREEN;
-    logWithTimestamp(logFile, "GREEN phase started");
-    fprintf(logFile, "Duration: %d seconds\n", durations.greenDuration);
-    logQueueState(q, logFile, "Start of GREEN phase");
-
-    time_t greenEnd = cycleStart + durations.greenDuration;
-    while (time(NULL) < greenEnd && !isEmpty(q)) {
-        Vehicule* v = dequeue(q, logFile);
-        if (v) {
-            logWithTimestamp(logFile, "Vehicle processed");
-            fprintf(logFile, "Processed Vehicle: ID %d | Type %d | Waiting time: %lds\n",
-                   v->id, v->type, time(NULL) - v->arrivalTime);
-            free(v);
-        }
-        sleep(3);
-    }
-
-    // PHASE ROUGE
-    q->lightState = RED;
-    logWithTimestamp(logFile, "RED phase started");
-    fprintf(logFile, "Duration: %d seconds\n", durations.redDuration);
-    logQueueState(q, logFile, "Start of RED phase");
-    sleep(durations.redDuration);
-
-    logWithTimestamp(logFile, "Cycle completed");
-    fprintf(logFile, "Total cycle duration: %ld seconds\n", time(NULL) - cycleStart);
-    logQueueState(q, logFile, "End of cycle");
-}
 
 // Fonction pour initialiser le fichier de log
 FILE* initializeLogFile() {

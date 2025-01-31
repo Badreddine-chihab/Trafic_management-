@@ -1,162 +1,173 @@
 Log de la simulation du trafic
 ============================
 
-[2025-01-29 12:17:31] Queue 1 | Added Vehicle 2 (Type: 1)
+[2025-01-31 22:50:20] Queue 1 | Véhicule 1 ajouté (Vélo)
 
-=== Queue 1 State (After enqueue) ===
-Capacity: 1/5 | Light: RED
+=== Queue 1 State (Après ajout) ===
+Capacity: 1/8 | Light: RED
 Vehicles:
-- ID: 2 | Type: Bus | Arrived at: 10s
+- ID: 1 | Type: Bike | Arrived at: 1738360220s
 =======================
-[2025-01-29 12:17:31] Queue 1 | Added Vehicle 3 (Type: 3)
 
-=== Queue 1 State (After enqueue) ===
-Capacity: 2/5 | Light: RED
+=== Queue 1 State (Current State) ===
+Capacity: 1/8 | Light: RED
 Vehicles:
-- ID: 2 | Type: Bus | Arrived at: 10s
-- ID: 3 | Type: Emergency | Arrived at: 5s
+- ID: 1 | Type: Bike | Arrived at: 1738360220s
 =======================
-[2025-01-29 12:17:31] Queue 1 | Added Vehicle 4 (Type: 2)
 
-=== Queue 1 State (After enqueue) ===
-Capacity: 3/5 | Light: RED
+=== Queue 1 State (Current State) ===
+Capacity: 1/8 | Light: RED
 Vehicles:
-- ID: 2 | Type: Bus | Arrived at: 10s
-- ID: 3 | Type: Emergency | Arrived at: 5s
-- ID: 4 | Type: Bike | Arrived at: 2s
+- ID: 1 | Type: Bike | Arrived at: 1738360220s
 =======================
-[2025-01-29 12:17:31] Queue 1 | Dequeued Vehicle 2
-[2025-01-29 12:17:31] Queue 1 | Added Vehicle 5 (Type: 0)
+[2025-01-31 22:50:22] Queue 1 | Véhicule 2 ajouté (Vélo)
 
-=== Queue 1 State (After enqueue) ===
-Capacity: 3/5 | Light: RED
+=== Queue 1 State (Après ajout) ===
+Capacity: 2/8 | Light: RED
 Vehicles:
-- ID: 3 | Type: Emergency | Arrived at: 5s
-- ID: 4 | Type: Bike | Arrived at: 2s
-- ID: 5 | Type: Car | Arrived at: 15s
+- ID: 1 | Type: Bike | Arrived at: 1738360220s
+- ID: 2 | Type: Bike | Arrived at: 1738360222s
 =======================
-[2025-01-29 12:17:31] Queue 1 | Added Vehicle 6 (Type: 1)
 
-=== Queue 1 State (After enqueue) ===
-Capacity: 4/5 | Light: RED
+=== Queue 1 State (Current State) ===
+Capacity: 2/8 | Light: RED
 Vehicles:
-- ID: 3 | Type: Emergency | Arrived at: 5s
-- ID: 4 | Type: Bike | Arrived at: 2s
-- ID: 5 | Type: Car | Arrived at: 15s
-- ID: 6 | Type: Bus | Arrived at: 12s
+- ID: 1 | Type: Bike | Arrived at: 1738360220s
+- ID: 2 | Type: Bike | Arrived at: 1738360222s
 =======================
-[2025-01-29 12:17:31] Queue 1 | Added Vehicle 7 (Type: 3)
+[2025-01-31 22:50:23] Queue 1 | Véhicule 3 ajouté (Voiture)
 
-=== Queue 1 State (After enqueue) ===
-Capacity: 5/5 | Light: RED
+=== Queue 1 State (Après ajout) ===
+Capacity: 3/8 | Light: RED
 Vehicles:
-- ID: 3 | Type: Emergency | Arrived at: 5s
-- ID: 4 | Type: Bike | Arrived at: 2s
-- ID: 5 | Type: Car | Arrived at: 15s
-- ID: 6 | Type: Bus | Arrived at: 12s
-- ID: 7 | Type: Emergency | Arrived at: 8s
+- ID: 1 | Type: Bike | Arrived at: 1738360220s
+- ID: 2 | Type: Bike | Arrived at: 1738360222s
+- ID: 3 | Type: Car | Arrived at: 1738360223s
 =======================
-[2025-01-29 12:17:31] Queue 1 FULL! Rejected Vehicle 8
-[2025-01-29 12:17:31] Queue 1 | Dequeued Vehicle 3
-[2025-01-29 12:17:31] Queue 1 | Added Vehicle 1 (Type: 0)
 
-=== Queue 1 State (After enqueue) ===
-Capacity: 5/5 | Light: RED
+=== Queue 1 State (Current State) ===
+Capacity: 3/8 | Light: RED
 Vehicles:
-- ID: 4 | Type: Bike | Arrived at: 2s
-- ID: 5 | Type: Car | Arrived at: 15s
-- ID: 6 | Type: Bus | Arrived at: 12s
-- ID: 7 | Type: Emergency | Arrived at: 8s
-- ID: 1 | Type: Car | Arrived at: 0s
+- ID: 1 | Type: Bike | Arrived at: 1738360220s
+- ID: 2 | Type: Bike | Arrived at: 1738360222s
+- ID: 3 | Type: Car | Arrived at: 1738360223s
 =======================
-[2025-01-29 12:17:31] GREEN phase started
-Duration: 12 seconds
 
-=== Queue 1 State (Start of GREEN phase) ===
-Capacity: 5/5 | Light: GREEN
+=== Queue 1 State (Current State) ===
+Capacity: 3/8 | Light: RED
 Vehicles:
-- ID: 4 | Type: Bike | Arrived at: 2s
-- ID: 5 | Type: Car | Arrived at: 15s
-- ID: 6 | Type: Bus | Arrived at: 12s
-- ID: 7 | Type: Emergency | Arrived at: 8s
-- ID: 1 | Type: Car | Arrived at: 0s
+- ID: 1 | Type: Bike | Arrived at: 1738360220s
+- ID: 2 | Type: Bike | Arrived at: 1738360222s
+- ID: 3 | Type: Car | Arrived at: 1738360223s
 =======================
-[2025-01-29 12:17:31] Queue 1 | Dequeued Vehicle 4
-[2025-01-29 12:17:31] Vehicle processed
-Processed Vehicle: ID 4 | Type 2 | Waiting time: 1738149449s
-[2025-01-29 12:17:34] Queue 1 | Dequeued Vehicle 5
-[2025-01-29 12:17:34] Vehicle processed
-Processed Vehicle: ID 5 | Type 0 | Waiting time: 1738149439s
-[2025-01-29 12:17:37] Queue 1 | Dequeued Vehicle 6
-[2025-01-29 12:17:37] Vehicle processed
-Processed Vehicle: ID 6 | Type 1 | Waiting time: 1738149445s
-[2025-01-29 12:17:40] Queue 1 | Dequeued Vehicle 7
-[2025-01-29 12:17:40] Vehicle processed
-Processed Vehicle: ID 7 | Type 3 | Waiting time: 1738149452s
-[2025-01-29 12:17:43] RED phase started
-Duration: 18 seconds
+[2025-01-31 22:50:25] Queue 1 | Véhicule 4 ajouté (Vélo)
 
-=== Queue 1 State (Start of RED phase) ===
-Capacity: 1/5 | Light: RED
+=== Queue 1 State (Après ajout) ===
+Capacity: 4/8 | Light: RED
 Vehicles:
-- ID: 1 | Type: Car | Arrived at: 0s
+- ID: 1 | Type: Bike | Arrived at: 1738360220s
+- ID: 2 | Type: Bike | Arrived at: 1738360222s
+- ID: 3 | Type: Car | Arrived at: 1738360223s
+- ID: 4 | Type: Bike | Arrived at: 1738360225s
 =======================
-[2025-01-29 12:18:01] Cycle completed
-Total cycle duration: 30 seconds
 
-=== Queue 1 State (End of cycle) ===
-Capacity: 1/5 | Light: RED
+=== Queue 1 State (Current State) ===
+Capacity: 4/8 | Light: RED
 Vehicles:
-- ID: 1 | Type: Car | Arrived at: 0s
+- ID: 1 | Type: Bike | Arrived at: 1738360220s
+- ID: 2 | Type: Bike | Arrived at: 1738360222s
+- ID: 3 | Type: Car | Arrived at: 1738360223s
+- ID: 4 | Type: Bike | Arrived at: 1738360225s
 =======================
-[2025-01-29 12:18:01] GREEN phase started
-Duration: 10 seconds
+[2025-01-31 22:50:26] RED -> GREEN
+Green duration: 3s (Jam: No)
 
-=== Queue 1 State (Start of GREEN phase) ===
-Capacity: 1/5 | Light: GREEN
+=== Queue 1 State (Current State) ===
+Capacity: 4/8 | Light: GREEN
 Vehicles:
-- ID: 1 | Type: Car | Arrived at: 0s
+- ID: 1 | Type: Bike | Arrived at: 1738360220s
+- ID: 2 | Type: Bike | Arrived at: 1738360222s
+- ID: 3 | Type: Car | Arrived at: 1738360223s
+- ID: 4 | Type: Bike | Arrived at: 1738360225s
 =======================
-[2025-01-29 12:18:01] Queue 1 | Dequeued Vehicle 1
-[2025-01-29 12:18:01] Vehicle processed
-Processed Vehicle: ID 1 | Type 0 | Waiting time: 1738149481s
-[2025-01-29 12:18:04] RED phase started
-Duration: 20 seconds
+[2025-01-31 22:50:27] Queue 1 | Dequeued Vehicle 1
+Processed Vehicle 1 (Wait: 7s)
 
-=== Queue 1 State (Start of RED phase) ===
-Capacity: 0/5 | Light: RED
+=== Queue 1 State (Current State) ===
+Capacity: 3/8 | Light: GREEN
+Vehicles:
+- ID: 2 | Type: Bike | Arrived at: 1738360222s
+- ID: 3 | Type: Car | Arrived at: 1738360223s
+- ID: 4 | Type: Bike | Arrived at: 1738360225s
+=======================
+[2025-01-31 22:50:31] Queue 1 | Dequeued Vehicle 2
+Processed Vehicle 2 (Wait: 9s)
+
+=== Queue 1 State (Current State) ===
+Capacity: 2/8 | Light: GREEN
+Vehicles:
+- ID: 3 | Type: Car | Arrived at: 1738360223s
+- ID: 4 | Type: Bike | Arrived at: 1738360225s
+=======================
+[2025-01-31 22:50:35] Queue 1 | Dequeued Vehicle 3
+Processed Vehicle 3 (Wait: 12s)
+
+=== Queue 1 State (Current State) ===
+Capacity: 1/8 | Light: GREEN
+Vehicles:
+- ID: 4 | Type: Bike | Arrived at: 1738360225s
+=======================
+[2025-01-31 22:50:39] Queue 1 | Dequeued Vehicle 4
+Processed Vehicle 4 (Wait: 14s)
+
+=== Queue 1 State (Current State) ===
+Capacity: 0/8 | Light: GREEN
 Vehicles:
 (empty)
 =======================
-[2025-01-29 12:18:25] Cycle completed
-Total cycle duration: 24 seconds
+[2025-01-31 22:50:43] GREEN -> RED (Empty queue)
 
-=== Queue 1 State (End of cycle) ===
-Capacity: 0/5 | Light: RED
+=== Queue 1 State (Current State) ===
+Capacity: 0/8 | Light: RED
 Vehicles:
 (empty)
 =======================
-[2025-01-29 12:18:25] GREEN phase started
-Duration: 10 seconds
+[2025-01-31 22:50:44] RED -> GREEN
+Green duration: 3s (Jam: No)
 
-=== Queue 1 State (Start of GREEN phase) ===
-Capacity: 0/5 | Light: GREEN
+=== Queue 1 State (Current State) ===
+Capacity: 0/8 | Light: GREEN
 Vehicles:
 (empty)
 =======================
-[2025-01-29 12:18:25] RED phase started
-Duration: 20 seconds
+[2025-01-31 22:50:45] GREEN -> RED (Empty queue)
 
-=== Queue 1 State (Start of RED phase) ===
-Capacity: 0/5 | Light: RED
+=== Queue 1 State (Current State) ===
+Capacity: 0/8 | Light: RED
 Vehicles:
 (empty)
 =======================
-[2025-01-29 12:18:45] Cycle completed
-Total cycle duration: 20 seconds
+[2025-01-31 22:50:46] Queue 1 | Véhicule 5 ajouté (Bus)
 
-=== Queue 1 State (End of cycle) ===
-Capacity: 0/5 | Light: RED
+=== Queue 1 State (Après ajout) ===
+Capacity: 1/8 | Light: RED
+Vehicles:
+- ID: 5 | Type: Bus | Arrived at: 1738360246s
+=======================
+[2025-01-31 22:50:46] RED -> GREEN
+Green duration: 3s (Jam: No)
+
+=== Queue 1 State (Current State) ===
+Capacity: 1/8 | Light: GREEN
+Vehicles:
+- ID: 5 | Type: Bus | Arrived at: 1738360246s
+=======================
+[2025-01-31 22:50:47] Queue 1 | Dequeued Vehicle 5
+Processed Vehicle 5 (Wait: 1s)
+
+=== Queue 1 State (Current State) ===
+Capacity: 0/8 | Light: GREEN
 Vehicles:
 (empty)
 =======================
+[2025-01-31 22:50:51] Simulation ended
