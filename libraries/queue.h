@@ -132,15 +132,39 @@ void logQueueState(Queue* q, FILE* logFile, const char* phase) {
     fflush(logFile);
 }
 
-// Fonction pour ajouter un véhicule à la file
+
 void enqueue(Queue* q, Vehicule* v, FILE* logFile) {
+    // Gestion prioritaire des véhicules d'urgence
+    if (v->type == Emergency) {
+        // Contournement des limites de capacité
+        v->next = q->first;
+        q->first = v;
+        if (q->last == NULL) {
+            q->last = v;
+        }
+        q->size++;
+
+        char msg[100];
+        snprintf(msg, 100, "Queue %d | VEHICULE URGENCE %d INSERE (Accès prioritaire)", 
+                q->id, v->id);
+        logWithTimestamp(logFile, msg);
+        logQueueState(q, logFile, "Insertion Urgence");
+        return;
+    }
+
+    // Traitement normal des véhicules
     if (isFull(q)) {
         char msg[100];
-        snprintf(msg, 100, "Queue %d FULL! Rejected Vehicle %d", q->id, v->id);
+        snprintf(msg, 100, "Queue %d PLEINE! Véhicule %d rejeté (%s)", 
+                q->id, v->id, 
+                (v->type == CAR) ? "Voiture" :
+                (v->type == BUS) ? "Bus" : "Vélo");
         logWithTimestamp(logFile, msg);
         free(v);
         return;
     }
+
+    // Ajout standard dans la file
     if (isEmpty(q)) {
         q->first = q->last = v;
     } else {
@@ -150,9 +174,12 @@ void enqueue(Queue* q, Vehicule* v, FILE* logFile) {
     q->size++;
 
     char msg[100];
-    snprintf(msg, 100, "Queue %d | Added Vehicle %d (Type: %d)", q->id, v->id, v->type);
+    snprintf(msg, 100, "Queue %d | Véhicule %d ajouté (%s)", 
+            q->id, v->id,
+            (v->type == CAR) ? "Voiture" :
+            (v->type == BUS) ? "Bus" : "Vélo");
     logWithTimestamp(logFile, msg);
-    logQueueState(q, logFile, "After enqueue");
+    logQueueState(q, logFile, "Après ajout");
 }
 
 // Fonction pour retirer un véhicule de la file

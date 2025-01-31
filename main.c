@@ -23,8 +23,6 @@ int main() {
     enqueue(queue, createVehicule(3, Emergency, 5), logFile);
     enqueue(queue, createVehicule(4, BIKE, 2), logFile);
 
-    // Défilement d'un véhicule
-    dequeue(queue, logFile);
     
 
     // Ajout de nouveaux véhicules
