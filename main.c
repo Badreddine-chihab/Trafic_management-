@@ -1,49 +1,109 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
+#include <unistd.h>
 #include "libraries/queue.h"
 
+#define SIMULATION_DURATION 30  // seconds
+
+void generateRandomVehicle(Queue* queue, FILE* logFile, time_t simulationStart) {
+    static int vehicleId = 1;
+    VehiculeType types[] = {CAR, BUS, BIKE, Emergency};
+    int elapsed = (int)(time(NULL) - simulationStart);
+    
+    // Generate vehicle with arrival time relative to simulation start
+    VehiculeType type = types[rand() % (rand() % 10 < 1 ? 4 : 3)];
+    Vehicule* v = createVehicule(vehicleId++, type, simulationStart + elapsed);
+    enqueue(queue, v, logFile);
+}
+
+// In simulateTrafficSystem(), modify the random generation call:
+
+void simulateTrafficSystem(Queue* queue, FILE* logFile) {
+    time_t startTime = time(NULL);
+    time_t currentTime;
+    int simulationActive = 1;
+
+    while (simulationActive) {
+        currentTime = time(NULL);
+        int elapsed = (int)difftime(currentTime, startTime);
+
+        // Check simulation duration
+        if (elapsed >= SIMULATION_DURATION) {
+            logWithTimestamp(logFile, "Simulation ended");
+            simulationActive = 0;
+            break;
+        }
+
+        // Random vehicle generation (more likely during red light)
+        if (queue->lightState == RED && (rand() % 100) < 40) {
+        generateRandomVehicle(queue, logFile, startTime);
+}
+
+        // Traffic light management
+        LightDurations durations = adjustLightDurations(queue);
+        
+        if (queue->lightState == GREEN) {
+            // Process vehicles during green light
+            if (!isEmpty(queue)) {
+                Vehicule* v = dequeue(queue, logFile);
+                if (v) {
+                    fprintf(logFile, "Processed Vehicle %d (Wait: %lds)\n",
+                          v->id, currentTime - v->arrivalTime);
+                    free(v);
+                }
+                sleep(3);  // Process 1 vehicle every 3 seconds
+            }
+            else {
+                // Switch to red if queue is empty
+                queue->lightState = RED;
+                logWithTimestamp(logFile, "GREEN -> RED (Empty queue)");
+            }
+        }
+        else { // RED light
+            // Check duration and switch to green
+            if (elapsed % (durations.redDuration + durations.greenDuration) >= durations.redDuration) {
+                queue->lightState = GREEN;
+                logWithTimestamp(logFile, "RED -> GREEN");
+                fprintf(logFile, "Green duration: %ds (Jam: %s)\n",
+                      durations.greenDuration,
+                      detectTrafficJam(queue) ? "Yes" : "No");
+            }
+        }
+
+        // Jam detection logging
+        if (detectTrafficJam(queue)) {
+            logWithTimestamp(logFile, "TRAFFIC JAM DETECTED!");
+        }
+
+        logQueueState(queue, logFile, "Current State");
+        sleep(1);  // Update every second
+    }
+}
+
+
+
 int main() {
-    // Initialisation du fichier de log
+    srand(time(NULL));  // Seed random number generator
+
+    // Initialize log file
     FILE* logFile = initializeLogFile();
     if (!logFile) {
-        printf("Erreur : Impossible d'ouvrir le fichier de log.\n");
+        printf("Error opening log file\n");
         return EXIT_FAILURE;
     }
 
-    // Création d'une file d'attente avec une capacité de 5 véhicules
-    Queue* queue = createQueue(5, 1);
+    // Create queue with capacity 8 vehicles
+    Queue* queue = createQueue(8, 1);
     if (!queue) {
-        printf("Erreur : Impossible de créer la file d'attente.\n");
         fclose(logFile);
         return EXIT_FAILURE;
     }
 
-    // Ajout initial de véhicules à la file
-    enqueue(queue, createVehicule(2, BUS, 10), logFile);
-    enqueue(queue, createVehicule(3, Emergency, 5), logFile);
-    enqueue(queue, createVehicule(4, BIKE, 2), logFile);
+    // Run simulation
+    simulateTrafficSystem(queue, logFile);
 
-    
-
-    // Ajout de nouveaux véhicules
-    enqueue(queue, createVehicule(5, CAR, 15), logFile);
-    enqueue(queue, createVehicule(6, BUS, 12), logFile);
-    enqueue(queue, createVehicule(7, Emergency, 8), logFile);
-    enqueue(queue, createVehicule(8, BIKE, 4), logFile);
-    
-    // Défilement d'un autre véhicule
-    dequeue(queue, logFile);
-    
-    // Ajout d'un dernier véhicule
-    enqueue(queue, createVehicule(1, CAR, 0), logFile);
-    
-    // Simulation de plusieurs cycles de feux
-    for (int i = 0; i < 3; i++) {
-        printf("\n=== Début du cycle %d ===\n", i + 1);
-        simulateTrafficLightCycle(queue, logFile);
-    }
-    
-    // Fermeture du fichier log et libération de la mémoire
+    // Cleanup
     fclose(logFile);
     free(queue);
     return EXIT_SUCCESS;
