@@ -21,7 +21,7 @@ typedef enum {
 typedef struct Vehicule {
     int id;
     VehiculeType type;
-    time_t arrivalTime;  // Changed from int to time_t for format display like this ex : 12:00:55 
+    time_t arrivalTime;  // Changed from int to time_t for format correct and logic arrival times 
     struct Vehicule* next;
 } Vehicule;
 
