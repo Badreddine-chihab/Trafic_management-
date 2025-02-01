@@ -23,7 +23,8 @@ void simulateTrafficSystem(Queue* queue, FILE* logFile) {
     time_t startTime = time(NULL);
     time_t currentTime;
     int simulationActive = 1;
-
+    printf("Simulating Traffic en cours pour %d seconds\n", SIMULATION_DURATION);
+    printf("Voir le log.txt\n");
     while (simulationActive) {
         currentTime = time(NULL);
         int elapsed = (int)difftime(currentTime, startTime);
@@ -35,7 +36,7 @@ void simulateTrafficSystem(Queue* queue, FILE* logFile) {
             break;
         }
 
-        // Random vehicle generation (more likely during red light)
+        // Random vehicle generation proba d apparition lors du feu rouge plus eleve
         if (queue->lightState == RED && (rand() % 100) < 40) {
         generateRandomVehicle(queue, logFile, startTime);
 }
@@ -52,10 +53,10 @@ void simulateTrafficSystem(Queue* queue, FILE* logFile) {
                           v->id, currentTime - v->arrivalTime);
                     free(v);
                 }
-                sleep(3);  // Process 1 vehicle every 3 seconds
+                sleep(3);  // Process 1 vehicle every 3 seconds pour un réalisme (ne pas faire passer les vehicules en meme temps) (a ajuster aussi )
             }
             else {
-                // Switch to red if queue is empty
+                // Switch to red if queue is empty (ne pas garder feu vert si la file est vide )
                 queue->lightState = RED;
                 logWithTimestamp(logFile, "GREEN -> RED (Empty queue)");
             }
@@ -77,6 +78,7 @@ void simulateTrafficSystem(Queue* queue, FILE* logFile) {
         }
 
         logQueueState(queue, logFile, "Current State");
+        
         sleep(1);  // Update every second
     }
 }

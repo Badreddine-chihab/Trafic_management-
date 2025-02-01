@@ -39,7 +39,7 @@ typedef struct Queue {
     int size;
     int Maxcapacity;
     TrafficLightState lightState;
-    int baseGreenDuration;
+    int baseGreenDuration; // par default (cas normal)
     int baseRedDuration;
 } Queue;
 
@@ -52,7 +52,7 @@ Vehicule *createVehicule(int id, VehiculeType type, int arrivalTime) {
     }
     v->id = id;
     v->type = type;
-    v->arrivalTime = arrivalTime;
+    v->arrivalTime = arrivalTime; // n.seconde apres debut de simulation 
     v->next = NULL;
     return v;
 }
@@ -67,16 +67,16 @@ Queue* createQueue(int max, int id) {
     q->first = NULL;
     q->last = NULL;
     q->id = id;
-    q->size = 0;
+    q->size = 0; // vide par default
     q->Maxcapacity = max;
     q->lightState = RED;
-    q->baseGreenDuration = 3;
+    q->baseGreenDuration = 3; // a ajuster 
     q->baseRedDuration = 6;
     return q;
 }
 
 int isFull(Queue* q) {
-    return q->size >= q->Maxcapacity;
+    return q->size >= q->Maxcapacity; 
 }
 
 int isEmpty(Queue* q) {
@@ -84,13 +84,13 @@ int isEmpty(Queue* q) {
 }
 
 int detectTrafficJam(Queue* q) {
-    return q->size >= q->Maxcapacity * 0.7;
+    return q->size >= q->Maxcapacity * 0.7; //a ajuster pour determiner les bouchons a un certain pourcentage
 }
 
 LightDurations adjustLightDurations(Queue* q) {
     LightDurations durations;
     if (detectTrafficJam(q)) {
-        durations.greenDuration = q->baseGreenDuration + 2;
+        durations.greenDuration = q->baseGreenDuration + 2; // rajouter (attention ne pas avoir de nombre negatif )
         durations.redDuration = q->baseRedDuration - 2;
     } else {
         durations.greenDuration = q->baseGreenDuration;
@@ -104,7 +104,7 @@ void logWithTimestamp(FILE* logFile, const char* message) {
     time_t now = time(NULL);
     struct tm* timeinfo = localtime(&now);
     char timestamp[20];
-    strftime(timestamp, 20, "%Y-%m-%d %H:%M:%S", timeinfo);
+    strftime(timestamp, 20, "%Y-%m-%d %H:%M:%S", timeinfo);     // real time-info
     fprintf(logFile, "[%s] %s\n", timestamp, message);
     fflush(logFile);
 }
@@ -118,7 +118,7 @@ void logQueueState(Queue* q, FILE* logFile, const char* phase) {
 
     fprintf(logFile, "Vehicles:");
     Vehicule* current = q->first;
-    while (current) {
+    while (current) { // parcourir les elements de la file 
         fprintf(logFile, "\n- ID: %d | Type: %s | Arrived at: %ds",
                current->id,
                (current->type == CAR) ? "Car" :
@@ -134,7 +134,7 @@ void logQueueState(Queue* q, FILE* logFile, const char* phase) {
 
 
 void enqueue(Queue* q, Vehicule* v, FILE* logFile) {
-    // Gestion prioritaire des véhicules d'urgence
+    // Gestion prioritaire des véhicules d'urgence (toujours les urgences en tete de la file )
     if (v->type == Emergency) {
         // Contournement des limites de capacité
         v->next = q->first;
@@ -152,8 +152,7 @@ void enqueue(Queue* q, Vehicule* v, FILE* logFile) {
         return;
     }
 
-    // Traitement normal des véhicules
-    if (isFull(q)) {
+    if (isFull(q)) { // si file pleine , aucun vehicule ne peut rentrer sauf les urgences , ces derniers se rendent au debut de la files et on supprime le dernier
         char msg[100];
         snprintf(msg, 100, "Queue %d PLEINE!", 
                 q->id);
@@ -184,7 +183,7 @@ void enqueue(Queue* q, Vehicule* v, FILE* logFile) {
 Vehicule* dequeue(Queue* q, FILE* logFile) {
     if (isEmpty(q)) {
         char msg[100];
-        snprintf(msg, 100, "Queue %d | Dequeue attempted on empty queue", q->id);
+        snprintf(msg, 100, "Queue %d | LA route est déjà vide , rien à faire passer ou retirer !", q->id);
         logWithTimestamp(logFile, msg);
         return NULL;
     }
@@ -197,7 +196,7 @@ Vehicule* dequeue(Queue* q, FILE* logFile) {
     q->size--;
 
     char msg[100];
-    snprintf(msg, 100, "Queue %d | Dequeued Vehicle %d", q->id, v->id);
+    snprintf(msg, 100, "Queue %d |  Vehicle passé : %d", q->id, v->id);
     logWithTimestamp(logFile, msg);
     return v;
 }
