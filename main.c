@@ -4,7 +4,7 @@
 #include <unistd.h>
 #include "libraries/queue.h"
 
-#define SIMULATION_DURATION 30  // seconds
+#define SIMULATION_DURATION 30  // seconds DHSHDSJJS
 
 void generateRandomVehicle(Queue* queue, FILE* logFile, time_t simulationStart) {
     static int vehicleId = 1;
