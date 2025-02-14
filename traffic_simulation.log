@@ -1,185 +1,224 @@
-[2025-02-14 12:19:56] Début simulation
-[2025-02-14 12:19:56] Début de la simulation
-[2025-02-14 12:19:56] Feu NORD-SUD -> VERT
+[2025-02-15 00:17:31] Debut simulation
+[2025-02-15 00:17:31] Debut de la simulation
+[2025-02-15 00:17:31] Feu NORD-SUD -> VERT
 
 === File Nord (Aller) ===
 Taille: 0/4 | Feu: ROUGE | Embouteillage: Non | Vert: 2s, Rouge: 4s
-[2025-02-14 12:19:56] ------------------------
+[2025-02-15 00:17:31] ------------------------
 
 === File Nord (Retour) ===
 Taille: 0/4 | Feu: ROUGE | Embouteillage: Non | Vert: 2s, Rouge: 4s
-[2025-02-14 12:19:56] ------------------------
+[2025-02-15 00:17:31] ------------------------
 
 === File Sud (Aller) ===
-Taille: 1/4 | Feu: ROUGE | Embouteillage: Non | Vert: 2s, Rouge: 4s
-Véhicule 5 (Type: Moto, Tourne: Droite)
-[2025-02-14 12:19:56] ------------------------
+Taille: 0/4 | Feu: ROUGE | Embouteillage: Non | Vert: 2s, Rouge: 4s
+[2025-02-15 00:17:31] ------------------------
 
 === File Sud (Retour) ===
 Taille: 0/4 | Feu: ROUGE | Embouteillage: Non | Vert: 2s, Rouge: 4s
-[2025-02-14 12:19:56] ------------------------
+[2025-02-15 00:17:31] ------------------------
 
 === File Est (Aller) ===
-Taille: 0/4 | Feu: ROUGE | Embouteillage: Non | Vert: 2s, Rouge: 4s
-[2025-02-14 12:19:56] ------------------------
+Taille: 1/4 | Feu: ROUGE | Embouteillage: Non | Vert: 2s, Rouge: 4s
+Vehicule 1 (Type: Moto, Tourne: Tout droit)
+[2025-02-15 00:17:31] ------------------------
 
 === File Est (Retour) ===
 Taille: 0/4 | Feu: ROUGE | Embouteillage: Non | Vert: 2s, Rouge: 4s
-[2025-02-14 12:19:56] ------------------------
+[2025-02-15 00:17:31] ------------------------
 
 === File Ouest (Aller) ===
 Taille: 0/4 | Feu: ROUGE | Embouteillage: Non | Vert: 2s, Rouge: 4s
-[2025-02-14 12:19:56] ------------------------
+[2025-02-15 00:17:31] ------------------------
 
 === File Ouest (Retour) ===
 Taille: 0/4 | Feu: ROUGE | Embouteillage: Non | Vert: 2s, Rouge: 4s
-[2025-02-14 12:19:56] ------------------------
-[2025-02-14 12:19:57] Feu NORD-SUD -> VERT
+[2025-02-15 00:17:31] ------------------------
+[2025-02-15 00:17:32] Feu NORD-SUD -> VERT
 
 === File Nord (Aller) ===
 Taille: 0/4 | Feu: ROUGE | Embouteillage: Non | Vert: 2s, Rouge: 4s
-[2025-02-14 12:19:57] ------------------------
+[2025-02-15 00:17:32] ------------------------
 
 === File Nord (Retour) ===
 Taille: 0/4 | Feu: ROUGE | Embouteillage: Non | Vert: 2s, Rouge: 4s
-[2025-02-14 12:19:57] ------------------------
+[2025-02-15 00:17:32] ------------------------
 
 === File Sud (Aller) ===
 Taille: 1/4 | Feu: ROUGE | Embouteillage: Non | Vert: 2s, Rouge: 4s
-Véhicule 5 (Type: Moto, Tourne: Droite)
-[2025-02-14 12:19:57] ------------------------
+Vehicule 2 (Type: Moto, Tourne: Gauche)
+[2025-02-15 00:17:32] ------------------------
 
 === File Sud (Retour) ===
 Taille: 0/4 | Feu: ROUGE | Embouteillage: Non | Vert: 2s, Rouge: 4s
-[2025-02-14 12:19:57] ------------------------
+[2025-02-15 00:17:32] ------------------------
 
 === File Est (Aller) ===
-Taille: 0/4 | Feu: ROUGE | Embouteillage: Non | Vert: 2s, Rouge: 4s
-[2025-02-14 12:19:57] ------------------------
+Taille: 1/4 | Feu: ROUGE | Embouteillage: Non | Vert: 2s, Rouge: 4s
+Vehicule 1 (Type: Moto, Tourne: Tout droit)
+[2025-02-15 00:17:32] ------------------------
 
 === File Est (Retour) ===
 Taille: 0/4 | Feu: ROUGE | Embouteillage: Non | Vert: 2s, Rouge: 4s
-[2025-02-14 12:19:57] ------------------------
+[2025-02-15 00:17:32] ------------------------
 
 === File Ouest (Aller) ===
-Taille: 1/4 | Feu: ROUGE | Embouteillage: Non | Vert: 2s, Rouge: 4s
-Véhicule 6 (Type: Urgence, Tourne: Tout droit)
-[2025-02-14 12:19:57] ------------------------
+Taille: 0/4 | Feu: ROUGE | Embouteillage: Non | Vert: 2s, Rouge: 4s
+[2025-02-15 00:17:32] ------------------------
 
 === File Ouest (Retour) ===
 Taille: 0/4 | Feu: ROUGE | Embouteillage: Non | Vert: 2s, Rouge: 4s
-[2025-02-14 12:19:57] ------------------------
-[2025-02-14 12:19:58] Feu NORD-SUD -> VERT
-[2025-02-14 12:19:58] Changement de phase
+[2025-02-15 00:17:32] ------------------------
+[2025-02-15 00:17:33] Feu NORD-SUD -> VERT
+[2025-02-15 00:17:33] Changement de phase
 
 === File Nord (Aller) ===
-Taille: 0/4 | Feu: ROUGE | Embouteillage: Non | Vert: 2s, Rouge: 4s
-[2025-02-14 12:19:58] ------------------------
+Taille: 1/4 | Feu: ROUGE | Embouteillage: Non | Vert: 2s, Rouge: 4s
+Vehicule 3 (Type: Voiture, Tourne: Droite)
+[2025-02-15 00:17:33] ------------------------
 
 === File Nord (Retour) ===
 Taille: 0/4 | Feu: ROUGE | Embouteillage: Non | Vert: 2s, Rouge: 4s
-[2025-02-14 12:19:58] ------------------------
+[2025-02-15 00:17:33] ------------------------
 
 === File Sud (Aller) ===
-Taille: 2/4 | Feu: ROUGE | Embouteillage: Non | Vert: 2s, Rouge: 4s
-Véhicule 7 (Type: Urgence, Tourne: Tout droit)
-Véhicule 5 (Type: Moto, Tourne: Droite)
-[2025-02-14 12:19:58] ------------------------
+Taille: 1/4 | Feu: ROUGE | Embouteillage: Non | Vert: 2s, Rouge: 4s
+Vehicule 2 (Type: Moto, Tourne: Gauche)
+[2025-02-15 00:17:33] ------------------------
 
 === File Sud (Retour) ===
 Taille: 0/4 | Feu: ROUGE | Embouteillage: Non | Vert: 2s, Rouge: 4s
-[2025-02-14 12:19:58] ------------------------
+[2025-02-15 00:17:33] ------------------------
 
 === File Est (Aller) ===
-Taille: 0/4 | Feu: ROUGE | Embouteillage: Non | Vert: 2s, Rouge: 4s
-[2025-02-14 12:19:58] ------------------------
+Taille: 1/4 | Feu: ROUGE | Embouteillage: Non | Vert: 2s, Rouge: 4s
+Vehicule 1 (Type: Moto, Tourne: Tout droit)
+[2025-02-15 00:17:33] ------------------------
 
 === File Est (Retour) ===
 Taille: 0/4 | Feu: ROUGE | Embouteillage: Non | Vert: 2s, Rouge: 4s
-[2025-02-14 12:19:58] ------------------------
+[2025-02-15 00:17:33] ------------------------
 
 === File Ouest (Aller) ===
-Taille: 1/4 | Feu: ROUGE | Embouteillage: Non | Vert: 2s, Rouge: 4s
-Véhicule 6 (Type: Urgence, Tourne: Tout droit)
-[2025-02-14 12:19:58] ------------------------
+Taille: 0/4 | Feu: ROUGE | Embouteillage: Non | Vert: 2s, Rouge: 4s
+[2025-02-15 00:17:33] ------------------------
 
 === File Ouest (Retour) ===
 Taille: 0/4 | Feu: ROUGE | Embouteillage: Non | Vert: 2s, Rouge: 4s
-[2025-02-14 12:19:58] ------------------------
-[2025-02-14 12:19:59] Feu NORD-SUD -> VERT
+[2025-02-15 00:17:33] ------------------------
+[2025-02-15 00:17:34] Feu NORD-SUD -> VERT
 
 === File Nord (Aller) ===
 Taille: 1/4 | Feu: ROUGE | Embouteillage: Non | Vert: 2s, Rouge: 4s
-Véhicule 8 (Type: Voiture, Tourne: Tout droit)
-[2025-02-14 12:19:59] ------------------------
+Vehicule 3 (Type: Voiture, Tourne: Droite)
+[2025-02-15 00:17:34] ------------------------
 
 === File Nord (Retour) ===
 Taille: 0/4 | Feu: ROUGE | Embouteillage: Non | Vert: 2s, Rouge: 4s
-[2025-02-14 12:19:59] ------------------------
-
-=== File Sud (Aller) ===
-Taille: 2/4 | Feu: ROUGE | Embouteillage: Non | Vert: 2s, Rouge: 4s
-Véhicule 7 (Type: Urgence, Tourne: Tout droit)
-Véhicule 5 (Type: Moto, Tourne: Droite)
-[2025-02-14 12:19:59] ------------------------
-
-=== File Sud (Retour) ===
-Taille: 0/4 | Feu: ROUGE | Embouteillage: Non | Vert: 2s, Rouge: 4s
-[2025-02-14 12:19:59] ------------------------
-
-=== File Est (Aller) ===
-Taille: 0/4 | Feu: ROUGE | Embouteillage: Non | Vert: 2s, Rouge: 4s
-[2025-02-14 12:19:59] ------------------------
-
-=== File Est (Retour) ===
-Taille: 0/4 | Feu: ROUGE | Embouteillage: Non | Vert: 2s, Rouge: 4s
-[2025-02-14 12:19:59] ------------------------
-
-=== File Ouest (Aller) ===
-Taille: 1/4 | Feu: ROUGE | Embouteillage: Non | Vert: 2s, Rouge: 4s
-Véhicule 6 (Type: Urgence, Tourne: Tout droit)
-[2025-02-14 12:19:59] ------------------------
-
-=== File Ouest (Retour) ===
-Taille: 0/4 | Feu: ROUGE | Embouteillage: Non | Vert: 2s, Rouge: 4s
-[2025-02-14 12:19:59] ------------------------
-[2025-02-14 12:20:00] Feu NORD-SUD -> VERT
-[2025-02-14 12:20:00] Changement de phase
-
-=== File Nord (Aller) ===
-Taille: 1/4 | Feu: ROUGE | Embouteillage: Non | Vert: 2s, Rouge: 4s
-Véhicule 8 (Type: Voiture, Tourne: Tout droit)
-[2025-02-14 12:20:00] ------------------------
-
-=== File Nord (Retour) ===
-Taille: 0/4 | Feu: ROUGE | Embouteillage: Non | Vert: 2s, Rouge: 4s
-[2025-02-14 12:20:00] ------------------------
+[2025-02-15 00:17:34] ------------------------
 
 === File Sud (Aller) ===
 Taille: 2/4 | Feu: ROUGE | Embouteillage: Non | Vert: 2s, Rouge: 4s
-Véhicule 7 (Type: Urgence, Tourne: Tout droit)
-Véhicule 5 (Type: Moto, Tourne: Droite)
-[2025-02-14 12:20:00] ------------------------
+Vehicule 2 (Type: Moto, Tourne: Gauche)
+Vehicule 4 (Type: Voiture, Tourne: Gauche)
+[2025-02-15 00:17:34] ------------------------
 
 === File Sud (Retour) ===
 Taille: 0/4 | Feu: ROUGE | Embouteillage: Non | Vert: 2s, Rouge: 4s
-[2025-02-14 12:20:00] ------------------------
+[2025-02-15 00:17:34] ------------------------
 
 === File Est (Aller) ===
 Taille: 1/4 | Feu: ROUGE | Embouteillage: Non | Vert: 2s, Rouge: 4s
-Véhicule 9 (Type: Voiture, Tourne: Droite)
-[2025-02-14 12:20:00] ------------------------
+Vehicule 1 (Type: Moto, Tourne: Tout droit)
+[2025-02-15 00:17:34] ------------------------
 
 === File Est (Retour) ===
 Taille: 0/4 | Feu: ROUGE | Embouteillage: Non | Vert: 2s, Rouge: 4s
-[2025-02-14 12:20:00] ------------------------
+[2025-02-15 00:17:34] ------------------------
 
 === File Ouest (Aller) ===
-Taille: 1/4 | Feu: ROUGE | Embouteillage: Non | Vert: 2s, Rouge: 4s
-Véhicule 6 (Type: Urgence, Tourne: Tout droit)
-[2025-02-14 12:20:00] ------------------------
+Taille: 0/4 | Feu: ROUGE | Embouteillage: Non | Vert: 2s, Rouge: 4s
+[2025-02-15 00:17:34] ------------------------
 
 === File Ouest (Retour) ===
 Taille: 0/4 | Feu: ROUGE | Embouteillage: Non | Vert: 2s, Rouge: 4s
-[2025-02-14 12:20:00] ------------------------
-[2025-02-14 12:20:01] Fin de la simulation
+[2025-02-15 00:17:34] ------------------------
+[2025-02-15 00:17:35] Feu NORD-SUD -> VERT
+[2025-02-15 00:17:35] Changement de phase
+
+=== File Nord (Aller) ===
+Taille: 2/4 | Feu: ROUGE | Embouteillage: Non | Vert: 2s, Rouge: 4s
+Vehicule 5 (Type: Urgence, Tourne: Droite)
+Vehicule 3 (Type: Voiture, Tourne: Droite)
+[2025-02-15 00:17:35] ------------------------
+
+=== File Nord (Retour) ===
+Taille: 0/4 | Feu: ROUGE | Embouteillage: Non | Vert: 2s, Rouge: 4s
+[2025-02-15 00:17:35] ------------------------
+
+=== File Sud (Aller) ===
+Taille: 2/4 | Feu: ROUGE | Embouteillage: Non | Vert: 2s, Rouge: 4s
+Vehicule 2 (Type: Moto, Tourne: Gauche)
+Vehicule 4 (Type: Voiture, Tourne: Gauche)
+[2025-02-15 00:17:35] ------------------------
+
+=== File Sud (Retour) ===
+Taille: 0/4 | Feu: ROUGE | Embouteillage: Non | Vert: 2s, Rouge: 4s
+[2025-02-15 00:17:35] ------------------------
+
+=== File Est (Aller) ===
+Taille: 1/4 | Feu: ROUGE | Embouteillage: Non | Vert: 2s, Rouge: 4s
+Vehicule 1 (Type: Moto, Tourne: Tout droit)
+[2025-02-15 00:17:35] ------------------------
+
+=== File Est (Retour) ===
+Taille: 0/4 | Feu: ROUGE | Embouteillage: Non | Vert: 2s, Rouge: 4s
+[2025-02-15 00:17:35] ------------------------
+
+=== File Ouest (Aller) ===
+Taille: 0/4 | Feu: ROUGE | Embouteillage: Non | Vert: 2s, Rouge: 4s
+[2025-02-15 00:17:35] ------------------------
+
+=== File Ouest (Retour) ===
+Taille: 0/4 | Feu: ROUGE | Embouteillage: Non | Vert: 2s, Rouge: 4s
+[2025-02-15 00:17:35] ------------------------
+[2025-02-15 00:17:36] Feu EST-OUEST -> VERT
+
+=== File Nord (Aller) ===
+Taille: 2/4 | Feu: ROUGE | Embouteillage: Non | Vert: 2s, Rouge: 4s
+Vehicule 5 (Type: Urgence, Tourne: Droite)
+Vehicule 3 (Type: Voiture, Tourne: Droite)
+[2025-02-15 00:17:36] ------------------------
+
+=== File Nord (Retour) ===
+Taille: 0/4 | Feu: ROUGE | Embouteillage: Non | Vert: 2s, Rouge: 4s
+[2025-02-15 00:17:36] ------------------------
+
+=== File Sud (Aller) ===
+Taille: 2/4 | Feu: ROUGE | Embouteillage: Non | Vert: 2s, Rouge: 4s
+Vehicule 2 (Type: Moto, Tourne: Gauche)
+Vehicule 4 (Type: Voiture, Tourne: Gauche)
+[2025-02-15 00:17:36] ------------------------
+
+=== File Sud (Retour) ===
+Taille: 0/4 | Feu: ROUGE | Embouteillage: Non | Vert: 2s, Rouge: 4s
+[2025-02-15 00:17:36] ------------------------
+
+=== File Est (Aller) ===
+Taille: 2/4 | Feu: ROUGE | Embouteillage: Non | Vert: 2s, Rouge: 4s
+Vehicule 1 (Type: Moto, Tourne: Tout droit)
+Vehicule 6 (Type: Moto, Tourne: Gauche)
+[2025-02-15 00:17:36] ------------------------
+
+=== File Est (Retour) ===
+Taille: 0/4 | Feu: ROUGE | Embouteillage: Non | Vert: 2s, Rouge: 4s
+[2025-02-15 00:17:36] ------------------------
+
+=== File Ouest (Aller) ===
+Taille: 0/4 | Feu: ROUGE | Embouteillage: Non | Vert: 2s, Rouge: 4s
+[2025-02-15 00:17:36] ------------------------
+
+=== File Ouest (Retour) ===
+Taille: 0/4 | Feu: ROUGE | Embouteillage: Non | Vert: 2s, Rouge: 4s
+[2025-02-15 00:17:36] ------------------------
+[2025-02-15 00:17:37] Fin de la simulation

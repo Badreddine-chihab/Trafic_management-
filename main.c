@@ -5,30 +5,29 @@
 
 // Affiche le menu principal de la simulation 
 void displayMenu() {
-    printf("\n**************************************************\n");
-    printf("*  MENU DE SIMULATION DE TRAFIC  *\n");
-    printf("**************************************************\n");
-
-    printf("* 1. Lancer la simulation |=>|  *\n");
-    printf("* 2. SHOW HISTORY              |X|   *\n");
-    printf("* 3. FERMER LE PROGRAMME              |X|   *\n");
+    printf("\n***************************************************\n");
+    printf("*********  MENU DE SIMULATION DE TRAFIC  **********\n");
+    printf("***************************************************\n\n");
+    printf("* 1. Lancer la simulation               |=>|  *\n");
+    printf("* 2. SHOW HISTORY                       |X|   *\n");
+    printf("* 3. FERMER LE PROGRAMME                |X|   *\n\n");
     printf("**************************************************\n");
     printf("Votre choix: ");
 }
 
-// Affiche l'en-tête de la simulation avec le temps écoulé
+// Affiche l'en-tête de la simulation avec le temps ecoule
 void printSimulationHeader(int simTime) {
-    printf("\n==========Simulation de trafic  ==========\n");
+    printf("\n==========  Simulation de trafic  ==========\n");
     printf("Temps: %d secondes\n", simTime);
 }
 
-// Convertit le type de véhicule en chaîne de caractères en français
+// Convertit le type de vehicule en chaîne de caractères en français
 char* vehicleTypeToString(VehiculeType type) {
-    char* types[] = {"Voiture ", "Bus ", "Moto", "Urgence "};
+    char* types[] = {" VOITURE ", " BUS ", " MOTO ", " URGENCE "};
     return types[type];
 }
 
-// Affiche l'état des voies (aller et retour)
+// Affiche l'etat des voies (aller et retour)
 void printLaneStatus(lane* lanes[]) {
     printf("\n---\nEtat des voies:\n");
     char* directions[] = {"Nord |^", "Sud v|", "Est ->", "Ouest <-"};
@@ -48,23 +47,23 @@ void printLaneStatus(lane* lanes[]) {
         }
         printf("\n");
     }
-    printf("------------\n");
+    printf("------------------------\n");
 }
 
 void runSimulation(TrafficHistoryStack* trafficHistory) {
     srand(time(NULL));
-    printf("\n=========== Simulation démarrée ===========\n");
+    printf("\n=========== Simulation demarree ===========\n");
 
-    // Création du fichier journal
+    // Creation du fichier journal
     FILE* logFile = initializeLogFile();
-    logWithTimestamp(logFile, "Début de la simulation");
+    logWithTimestamp(logFile, "Debut de la simulation");
 
-    // Création des files de circulation
+    // Creation des files de circulation
     lane north_lane, south_lane, east_lane, west_lane;
     Createlane(&north_lane, QUEUE_CAPACITY, 1, NORTH);
     Createlane(&south_lane, QUEUE_CAPACITY, 2, SOUTH);
-    Createlane(&east_lane, QUEUE_CAPACITY, 3, EAST);
-    Createlane(&west_lane, QUEUE_CAPACITY, 4, WEST);
+    Createlane(&east_lane,  QUEUE_CAPACITY, 3, EAST);
+    Createlane(&west_lane,  QUEUE_CAPACITY, 4, WEST);
 
     lane* lanes[] = {&north_lane, &south_lane, &east_lane, &west_lane};
     int numLanes = 4;
@@ -76,7 +75,7 @@ void runSimulation(TrafficHistoryStack* trafficHistory) {
     enqueuePhase(&trafficLightQueue, NORTH_SOUTH_GREEN, BASE_GREEN_DURATION, BASE_RED_DURATION);
     enqueuePhase(&trafficLightQueue, EAST_WEST_GREEN, BASE_GREEN_DURATION, BASE_RED_DURATION);
 
-    // Premier état des feux
+    // Premier etat des feux
     TrafficPhaseNode* currentPhaseNode = trafficLightQueue.front;
     time_t phaseStartTime = time(NULL);
     int simTime = 0;
@@ -94,15 +93,15 @@ void runSimulation(TrafficHistoryStack* trafficHistory) {
 
         printLaneStatus(lanes);
 
-        // Vérification des embouteillages
+        // Verification des embouteillages
         for (int i = 0; i < numLanes; i++) {
             if (detectTrafficJam(lanes[i]->aller)) {
-                printf("\n Embouteillage détecté sur voie %d !\n", lanes[i]->aller->id);
-                logWithTimestamp(logFile, "Embouteillage détecté !");
+                printf("\n Embouteillage detecte sur voie %d !\n", lanes[i]->aller->id);
+                logWithTimestamp(logFile, "Embouteillage detecte !");
             }
         }
 
-        // Génération aléatoire de véhicules
+        // Generation aleatoire de vehicules
         if (rand() % 100 < VEHICLE_GEN_PROB) {
             int laneIndex = rand() % numLanes;
             generateRandomVehicle(lanes[laneIndex]->aller, logFile, simTime,trafficHistory);
@@ -122,7 +121,7 @@ void runSimulation(TrafficHistoryStack* trafficHistory) {
         currentPhaseNode->greenDuration = adjustedDurations.greenDuration;
         currentPhaseNode->redDuration = adjustedDurations.redDuration;
 
-        // Vérification du changement de phase
+        // Verification du changement de phase
         time_t currentTime = time(NULL);
         int elapsed = (int)difftime(currentTime, phaseStartTime);
         if (elapsed >= currentPhaseNode->greenDuration) {
@@ -134,7 +133,7 @@ void runSimulation(TrafficHistoryStack* trafficHistory) {
             phaseStartTime = currentTime;
         }
 
-        // Traitement des véhicules
+        // Traitement des vehicules
         for (int i = 0; i < numLanes; i++) {
             processQueue(lanes[i]->aller, logFile,trafficHistory, &simTime, lanes, numLanes);
         }
@@ -148,7 +147,7 @@ void runSimulation(TrafficHistoryStack* trafficHistory) {
         simTime++;
     }
 
-    printf("\n============ Simulation terminée ============\n");
+    printf("\n============ Simulation terminee ============\n");
     logWithTimestamp(logFile, "Fin de la simulation");
     fclose(logFile);
     getchar();
@@ -174,7 +173,7 @@ int main() {
                 printf("\nFermeture du programme...\n");
                 exit(0);
             default:
-                printf("\nChoix invalide ! Appuyez sur Entrée pour continuer...");
+                printf("\nChoix invalide ! Appuyez sur Entree pour continuer...");
                 getchar();
         }
     } while (1);

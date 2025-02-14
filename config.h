@@ -1,7 +1,7 @@
 #ifndef CONFIG_H
 #define CONFIG_H
 
-#define SIMULATION_DURATION 5  // Simulation duration in seconds 
+#define SIMULATION_DURATION 6  // Simulation duration in seconds 
 #define QUEUE_CAPACITY 4           // Maximum capacity of each queue
 #define EMERGENCY_CHANCE 20        // 20% chance for an emergency vehicle
 #define VEHICLE_GEN_PROB 80     // 80% chance to generate a vehicle when light is red
