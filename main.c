@@ -1,17 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include <unistd.h>
 #include "libraries/queue.h"
 
-// Affiche le menu principal de la simulation
+// Affiche le menu principal de la simulation 
 void displayMenu() {
     printf("\n**************************************************\n");
     printf("*  MENU DE SIMULATION DE TRAFIC  *\n");
     printf("**************************************************\n");
 
     printf("* 1. Lancer la simulation |=>|  *\n");
-    printf("* 2. Quitter              |X|   *\n");
+    printf("* 2. SHOW HISTORY              |X|   *\n");
+    printf("* 3. FERMER LE PROGRAMME              |X|   *\n");
     printf("**************************************************\n");
     printf("Votre choix: ");
 }
@@ -48,11 +48,10 @@ void printLaneStatus(lane* lanes[]) {
         }
         printf("\n");
     }
-    printf("---\n");
+    printf("------------\n");
 }
 
-// Exécute la simulation de trafic
-void runSimulation() {
+void runSimulation(TrafficHistoryStack* trafficHistory) {
     srand(time(NULL));
     printf("\n=========== Simulation démarrée ===========\n");
 
@@ -71,8 +70,8 @@ void runSimulation() {
     int numLanes = 4;
 
     // Initialisation de la file circulaire pour les feux de circulation
-    CircularQueue trafficLightQueue;
-    initCircularQueue(&trafficLightQueue);
+    LLCircular trafficLightQueue;
+    initLLCircular(&trafficLightQueue);
 
     enqueuePhase(&trafficLightQueue, NORTH_SOUTH_GREEN, BASE_GREEN_DURATION, BASE_RED_DURATION);
     enqueuePhase(&trafficLightQueue, EAST_WEST_GREEN, BASE_GREEN_DURATION, BASE_RED_DURATION);
@@ -106,7 +105,11 @@ void runSimulation() {
         // Génération aléatoire de véhicules
         if (rand() % 100 < VEHICLE_GEN_PROB) {
             int laneIndex = rand() % numLanes;
-            generateRandomVehicle(lanes[laneIndex]->aller, logFile, simTime);
+            generateRandomVehicle(lanes[laneIndex]->aller, logFile, simTime,trafficHistory);
+        
+            // Add vehicle to traffic history after it's generated and added to a lane
+            time_t passTime = time(NULL);  // Vehicle passing time
+            
         }
 
         // Ajustement des feux en fonction du trafic
@@ -121,7 +124,7 @@ void runSimulation() {
 
         // Vérification du changement de phase
         time_t currentTime = time(NULL);
-        int elapsed = currentTime - phaseStartTime;
+        int elapsed = (int)difftime(currentTime, phaseStartTime);
         if (elapsed >= currentPhaseNode->greenDuration) {
             TrafficPhaseNode* nextPhase = dequeuePhase(&trafficLightQueue);
             if (nextPhase != NULL) {
@@ -133,9 +136,9 @@ void runSimulation() {
 
         // Traitement des véhicules
         for (int i = 0; i < numLanes; i++) {
-            processQueue(lanes[i]->aller, logFile, &simTime, lanes, numLanes);
+            processQueue(lanes[i]->aller, logFile,trafficHistory, &simTime, lanes, numLanes);
         }
-
+    
         for (int i = 0; i < numLanes; i++) {
             logQueueState(lanes[i]->aller, logFile, "Aller");
             logQueueState(lanes[i]->retour, logFile, "Retour");
@@ -154,16 +157,20 @@ void runSimulation() {
 // Main function
 int main() {
     int choice;
+    TrafficHistoryStack trafficHistory;
+    initTrafficHistory(&trafficHistory);
     do {
         displayMenu();
         scanf("%d", &choice);
         getchar();
-
         switch (choice) {
             case 1:
-                runSimulation();
+                runSimulation(&trafficHistory);
                 break;
             case 2:
+                printTrafficHistory(&trafficHistory);
+                break;
+            case 3:
                 printf("\nFermeture du programme...\n");
                 exit(0);
             default:
@@ -171,6 +178,6 @@ int main() {
                 getchar();
         }
     } while (1);
-
+    clearTrafficHistory(&trafficHistory);
     return 0;
 }
