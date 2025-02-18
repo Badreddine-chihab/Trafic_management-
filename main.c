@@ -8,10 +8,10 @@ void displayMenu() {
     printf("\n***************************************************\n");
     printf("*********  MENU DE SIMULATION DE TRAFIC  **********\n");
     printf("***************************************************\n\n");
-    printf("* 1. Lancer la simulation               |=>|  *\n");
-    printf("* 2. SHOW HISTORY                       |X|   *\n");
-    printf("* 3. FERMER LE PROGRAMME                |X|   *\n\n");
-    printf("**************************************************\n");
+    printf("* 1. Lancer la simulation                   |=>|  *\n");
+    printf("* 2. SHOW HISTORY                           |X|   *\n");
+    printf("* 3. FERMER LE PROGRAMME                    |X|   *\n\n");
+    printf("***************************************************\n");
     printf("Votre choix: ");
 }
 
@@ -47,9 +47,10 @@ void printLaneStatus(lane* lanes[]) {
         }
         printf("\n");
     }
-    printf("------------------------\n");
+    printf("------------------------------------------------\n");
 }
 
+// Fonction de simulation principale
 void runSimulation(TrafficHistoryStack* trafficHistory) {
     srand(time(NULL));
     printf("\n=========== Simulation demarree ===========\n");
@@ -153,7 +154,7 @@ void runSimulation(TrafficHistoryStack* trafficHistory) {
     getchar();
 }
 
-// Main function
+// La fonction main
 int main() {
     int choice;
     TrafficHistoryStack trafficHistory;
